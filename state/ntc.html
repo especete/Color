@@ -1,0 +1,7 @@
+<ul ng-show='navigationInput == 2' class='list.compare pos.atr'>
+	<input class='list.search' type="search" placeholder="search" ng-model='filt'>
+	<li ng-repeat='color in getNTC | filter:filt as results' ng-style="{'border-left-color':'#' + color[0]}">
+		<h1>{{color[1]}}</h1>
+		<p>Hex:#{{color[0]}}</p>
+	</li>
+</ul>

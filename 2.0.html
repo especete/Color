@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang='en' ng-app='colorApp'><head><meta charset='utf-8'>
+<title>2.1 &bull; bin.color</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<link rel='stylesheet' href='inc/normalize.css'>
+<link rel='stylesheet' href='inc/bin.css'>
+<style type='text/css'>
+	
+	body{
+		overflow:hidden
+	}
+	/* ++++++++++ */
+	
+	.pos\.r{
+		position:relative;
+	}
+	
+	/* ++++++++++ */
+
+	/* Set */
+	
+	#set{
+		z-index:100
+	}
+	#set input{
+		background-color:transparent;
+		text-align:center;
+		border:none;
+		border-bottom-width:.3vh;
+		border-bottom-style:dashed;
+		width:20vw;
+		font-size:5vh;
+		margin-left:3.5vw;
+		margin-top:-5vh
+	}
+	#set svg{
+		height:100vh;
+		width:100vw;
+	}
+	#tt{
+		height:10vh;
+		width:10vw;
+		z-index:500
+	}
+
+</style>
+</head>
+<body ng-controller='mainCntr'>
+
+	<article id='set'>
+		<!-- setBuilder -->
+		<input class='set.user pos.acc' type='text' ng-model='setByUser' ng-change='change()' ng-style="{color:HexTXT, 'border-bottom-color':HexTXT}">
+		<svg class='' height='100%' width='100%' viewbox='0 0 100 100' preserveAspectRatio='none'>
+			<g>
+				<rect id='color-1' x='30' y='0' height='100px' width='70px' ng-style="{fill:HexOne}"></rect>
+				<rect id='color-2' x='12' y='70' height='30px' width='18px' ng-style="{fill:HexTwo}"></rect>
+				<rect id='color-3' x='12' y='0' height='70px' width='18px' ng-style="{fill:HexThree}"></rect>
+				<rect id='color-4' x='0' y='16' height='84px' width='12px' ng-style="{fill:HexFour}"></rect>
+				<rect id='color-5' x='0' y='0' height='16px' width='12px' ng-style="{fill:HexFive}"></rect>
+			</g>
+		</svg>
+	</article>
+	<article id='tt' class='pos.atl' ng-if='view == 0'>
+		<svg height='100%' width='100%' viewbox='0 0 100 100' preserveAspectRatio='none'>
+			<g>
+				<rect id='color-1' x='30' y='0' height='100px' width='70px' ng-style="{fill:HexOne}"></rect>
+				<rect id='color-2' x='12' y='70' height='30px' width='18px' ng-style="{fill:HexTwo}"></rect>
+				<rect id='color-3' x='12' y='0' height='70px' width='18px' ng-style="{fill:HexThree}"></rect>
+				<rect id='color-4' x='0' y='16' height='84px' width='12px' ng-style="{fill:HexFour}"></rect>
+				<rect id='color-5' x='0' y='0' height='16px' width='12px' ng-style="{fill:HexFive}"></rect>
+			</g>
+		</svg>
+	</article>
+
+<script src="inc/jquery.js"></script>
+<script src="inc/angular.js"></script>
+<script src="inc/tinycolor.js"></script>
+<script type="text/javascript">
+
+var ntcApp = angular.module('colorApp', [])
+
+.controller('mainCntr', function($scope){
+
+// ---- MAIN:MENU
+
+	$scope.view = 0;
+	
+// ---- MAIN:VIEW
+
+//	
+	
+		$scope.setByUser = (function(h){return '#000000'.substr(0,7-h.leght)+h})((~~(Math.random()*(1<<24))).toString(16));
+	//if(angular.isUndefined($scope.tt)){
+//	}
+	
+	function setColor(){
+		
+		$scope.HexTXT = tinycolor.mostReadable($scope.setByUser,['#000000','#fffffe']).toHexString();
+
+		$scope.HexOne = tinycolor($scope.setByUser).toHexString();
+		$scope.HexTwo = tinycolor($scope.setByUser).complement().spin(80).darken(37).desaturate(10).toHexString();
+		$scope.HexThree = tinycolor($scope.setByUser).complement().spin(100).brighten(10).saturate(10).toHexString();
+		$scope.HexFour = tinycolor($scope.setByUser).complement().spin(10).saturate(70).toHexString();
+		$scope.HexFive = tinycolor($scope.setByUser).complement().saturate(40).darken(7).toHexString();
+
+	};
+	setColor();
+	
+	$scope.change = function(){
+		
+		setColor();
+		
+	}
+	
+});
+
+</script>
+</body>
+</html>

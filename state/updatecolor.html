@@ -1,0 +1,14 @@
+<button class='pos.abr' ng-click='update()'>
+	<svg height='100%' width='100%' viewbox='0 0 100 100' preserveAspectRatio='none'>
+		<rect x='0' y='0' height='100' width='100' style='fill:#515045'>
+			<animate id='rand1' attributeName='height' from='100' to='90' begin='click' dur='.1s' attributeType='XML' fill='freeze' />
+			<animate id='rand2' attributeName='width' from='100' to='90' begin='click' dur='.1s' attributeType='XML' fill='freeze' />
+			<animate id='rand3' attributeName='x' from='0' to='5' begin='click' dur='.1s' attributeType='XML' fill='freeze' />
+			<animate id='rand4' attributeName='y' from='0' to='5' begin='click' dur='.1s' attributeType='XML' fill='freeze' />
+			<animate attributeName='height' from='90' to='100' begin='rand1.end' dur='.1s' attributeType='XML' fill='freeze' />
+			<animate attributeName='width' from='90' to='100' begin='rand2.end' dur='.1s' attributeType='XML' fill='freeze' />
+			<animate attributeName='x' from='5' to='0' begin='rand3.end' dur='.1s' attributeType='XML' fill='freeze' />
+			<animate attributeName='y' from='5' to='0' begin='rand4.end' dur='.1s' attributeType='XML' fill='freeze' />
+		</rect>
+	</svg>
+</button>
