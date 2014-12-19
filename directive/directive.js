@@ -1,42 +1,20 @@
 // JavaScript Document
-
-			//restrict:'E',
-			//scope:false,
-			//transclude:true,
-			//template:'',
-			//templateUrl:''
-			
-coco.directive('setcolor', function(){
+	
+coco.directive('randomizer', function(){
 		return {
-			templateUrl:'state/setcolor.html'
+			templateUrl:'state/ui-random.html'
 		}
 	})
-	.directive('updatecolor', function(){
+	.directive('userinput', function(){
 		return {
-			templateUrl:'state/updatecolor.html'
+			templateUrl:'state/ui-userinput.html'
 		}
 	})
-	.directive('navigation', function(){
-		return {
-			templateUrl:'state/navigation.html'
-		}
-	})
-	.directive('navigationdesign', function(){
+	.directive('variations', function(){
 		return {
 			templateUrl:function(elem,attr){
 				
-				return 'state/navigation-' + attr.number + '.html'
+				return 'state/svg-' + attr.name + '.html'
 			}
 		}
 	})
-	.directive('svge', function(){
-		return {
-			templateUrl:'state/svgview.html'
-		}
-	})
-	.directive('listntc', function(){
-		return {
-			templateUrl:'state/ntc.html'
-		}
-	})
-	

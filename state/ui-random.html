@@ -1,6 +1,7 @@
-<button class='pos.abr' ng-click='update()'>
+<button ng-click='update()'>
 	<svg height='100%' width='100%' viewbox='0 0 100 100' preserveAspectRatio='none'>
-		<rect x='0' y='0' height='100' width='100' style='fill:#515045'>
+	
+		<!--<rect x='25' y='25' height='50' width='50' style='fill:none;stroke:{{setReadability}};stroke-width:2'>
 			<animate id='rand1' attributeName='height' from='100' to='90' begin='click' dur='.1s' attributeType='XML' fill='freeze' />
 			<animate id='rand2' attributeName='width' from='100' to='90' begin='click' dur='.1s' attributeType='XML' fill='freeze' />
 			<animate id='rand3' attributeName='x' from='0' to='5' begin='click' dur='.1s' attributeType='XML' fill='freeze' />
@@ -9,6 +10,8 @@
 			<animate attributeName='width' from='90' to='100' begin='rand2.end' dur='.1s' attributeType='XML' fill='freeze' />
 			<animate attributeName='x' from='5' to='0' begin='rand3.end' dur='.1s' attributeType='XML' fill='freeze' />
 			<animate attributeName='y' from='5' to='0' begin='rand4.end' dur='.1s' attributeType='XML' fill='freeze' />
-		</rect>
+		</rect>-->
+		<!--<text x='25' y='25' style='font-size:20px;fill:{{setReadability}}'>{{findBrightness}}</text>-->
+		<rect class='c1r1' height='98' width='98' x='0' y='0' ry="11.5" rx="11.5" style="stroke:black;stroke-width:1" ng-style="{fill:setRandom.color1}" />
 	</svg>
 </button>

@@ -1,53 +1,98 @@
 <!DOCTYPE html><html lang='en' ng-app='coco'><head><meta charset='utf-8'>
-<title>coco 4.1 &bull; bin.git</title>
+<title>coco 5.4 &bull; bin.git</title>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <link rel='stylesheet' href='inc/normalize.css'>
 <link rel='stylesheet' href='inc/bin.css'>
-<link rel='stylesheet' href='style.css'>
 <style type='text/css'>
 
-.save{
-	height:100vh;
-	width:60vw;
-	margin-left:35vw;
-	border-right:.1vw solid #dbdbdc;
+body{
+	overflow-x:scroll; 
+	overflow-y:hidden
+}
+button:focus{
+	outline:none
+}
+ul{
+	list-style:none;
+	margin:0;
+}
+::-webkit-scrollbar{
+	height:1.7vh;
+}
+::-webkit-scrollbar-track{
+	background-color:#edf5f3
+}
+::-webkit-scrollbar-thumb{
+	background-color:rgba(0,0,0,0)
+}
+::-webkit-scrollbar-thumb:hover{
+	background-color:rgba(0,0,0,1)
+}
+.previewSHHide{ height:100vh; }
+.previewSHShow{ height:80vh; }
 
+.previewSHHide ul{ width:190vw }
+.previewSHShow ul{ width:145vw }
+
+.previewSHHide li{ float:left }
+.previewSHShow li{ float:left }
+
+.previewSHHide svg.bin{ height:90vh; width:56vh; margin-left:5vw; margin-top:1vh }
+.previewSHShow svg.bin{ height:70vh; width:43vh; margin-left:3vw; margin-top:2vh }
+
+userinput button{ background-color:transparent; border:none; height:5vw; width:5vw; margin-top:-25vw; z-index:10 }
+userinput button svg{
+	height:4.5vw;
+	width:4.5vw;
+}
+
+.userinputSHHide{ display:none }
+.userinputSHShow{ height:20vh; width:100vw; background-color:#edf5f3 }
+
+.userinputSHShow button{ background-color:transparent; border:none; height:5vw; width:5vw; margin-left:-13.5vw; margin-top:-2vw; z-index:2 }
+.userinputSHShow button svg{
+	height:4.5vw;
+	width:4.5vw;
+}
+.userinputSHShow input{
+	background-color:transparent;
+	text-align:center;
+	border:none;
+	border-bottom-width:.2vh;
+	border-bottom-style:dashed;
+	border-bottom-color:#aaaaab;
+	width:18vw;
+	font-size:5vh;
+	margin-left:-5vw;
+	margin-top:-3.2vh
 }
 
 </style>
 </head>
 <body ng-controller='appCntr'>
-
-<navigation></navigation>
-<svge></svge>
-<setcolor></setcolor>
-<listntc></listntc>
-<updatecolor></updatecolor>
-
-<div class='save pos.atl' ng-show='navigationInput == 3'>
-	<pre><code class='language-markup'>
-&lt;svg height='100%' width='100%' viewbox='0 0 100 100' preserveAspectRatio='none'&gt;
- &lt;g transform='rotate(-90 50 50)'&gt;
-  &lt;rect id='color-1' x='30' y='0' height='100px' width='70px' 
-   style='fill:{{colorSetAlpha1}}&gt;&lt;/rect&gt;
-  &lt;rect id='color-2' x='12' y='70' height='30px' width='18px' 
-   style='fill:{{colorSetAlpha2}}&gt;&lt;/rect&gt;
-  &lt;rect id='color-3' x='12' y='0' height='70px' width='18px' 
-   style='fill:{{colorSetAlpha3}}&gt;&lt;/rect&gt;
-  &lt;rect id='color-4' x='0' y='16' height='84px' width='12px' 
-   style='fill:{{colorSetAlpha4}}&gt;&lt;/rect&gt;
-  &lt;rect id='color-5' x='0' y='0' height='16px' width='12px' 
-   style='fill:{{colorSetAlpha5}}&gt;&lt;/rect&gt;
- &lt;/g&gt;
-&lt;/svg&gt;
-	</code></pre>
-	<div></div>
-</div>
+	
+	<div class='pos.atl' ng-class='{previewSHHide:showHide==0, previewSHShow:showHide==1}'>
+		<ul>
+			<li variations name='bincoco' title='Bin:coco' class='group.four'></li>
+			<li variations name='binrobot' title='Bin:Robot' class='group.three'></li>
+			<li variations name='binstamp' title='Bin:Stamp' class='group.five'></li>
+			<li variations name='binspaceship' title='Bin:Spaceship' class='group.seven'></li>
+			<li variations name='bindog' title='Bin:Dog' class='group.seven'></li>
+		</ul>
+		<userinput class='pos.acl'></userinput>
+	</div>
+	<div class='pos.fbl' ng-class='{userinputSHHide:showHide==0, userinputSHShow:showHide==1}'>
+		<randomizer class='pos.acc'></randomizer>
+		<input class='pos.acc' type='text' ng-model='randomizer' ng-change='change()'>
+	</div>
 
 <script src="inc/jquery.js"></script>
 <script src="inc/angular.js"></script>
 <script src="inc/angular-ui-bootstrap.js"></script>
 <script src="inc/tinycolor.js"></script>
+<script src="inc/chroma.js"></script>
+<script src="inc/color-scheme.js"></script>
+<script src="inc/please.js"></script>
 <script src="inc/ntc.js"></script>
 <script src="app/app.js"></script>
 <script src="controller/controller.js"></script>

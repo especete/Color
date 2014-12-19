@@ -1,0 +1,18 @@
+<button ng-if='showHide==0' ng-click='show()' ng-model='showHide'>
+	<svg height='100%' width='100%' viewbox='0 0 100 100' preserveAspectRatio='none'>
+		<rect class='c1r1' height='98' width='98' x='0' y='0' ry="11.5" rx="11.5" style="fill:rgb(255, 208, 128);fill-opacity:1">
+			<animate id='sh1' attributeName='fill-opacity' from='1' to='0' begin='0s' dur='1s' attributeType='CSS' fill='freeze' />
+			<animate id='sh2' attributeName='fill-opacity' from='0' to='1' begin='mouseover' dur='.1s' attributeType='CSS' fill='freeze' />
+			<animate id='sh2' attributeName='fill-opacity' from='1' to='0' begin='mouseout' dur='.1s' attributeType='CSS' fill='freeze' />
+		</rect>
+	</svg>
+</button>
+<button ng-if='showHide==1' ng-click='hide()' ng-model='showHide'>
+	<svg height='100%' width='100%' viewbox='0 0 100 100' preserveAspectRatio='none'>
+		<rect class='c1r1' height='98' width='98' x='0' y='0' ry="11.5" rx="11.5" style="fill:rgb(128, 255, 210);fill-opacity:1">
+			<animate id='sh1' attributeName='fill-opacity' from='1' to='0' begin='0s' dur='1s' attributeType='CSS' fill='freeze' />
+			<animate id='sh2' attributeName='fill-opacity' from='0' to='1' begin='mouseover' dur='.1s' attributeType='CSS' fill='freeze' />
+			<animate id='sh2' attributeName='fill-opacity' from='1' to='0' begin='mouseout' dur='.1s' attributeType='CSS' fill='freeze' />
+		</rect>
+	</svg>
+</button>

@@ -1,3 +1,0 @@
-<?php
-// Stop fishing, please.
-?>
